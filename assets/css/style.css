@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --height-header: 3.5rem;
+    --container-width: 1120 px;
+
+    /* =============== COLOR =============== */
+    --main-color: #213145;
+    --main-color-light: #2c4564;
+    --white: #fff;
+
+    /* =============== FONT =============== */
+    --main-font: "Poppins", sans-serif;
+    ;
+    --main-font-size: 2.05rem;
+
+    /* =============== FONT WEIGHT =============== */
+    --font-regular: 400;
+    --font-semi-bold: 600;
+
+    /* =============== Z INDEX =============== */
+    --z-fixed: 100;
+
+}
+
+/* =============== RESET CSS =============== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--white);
+    font-family: var(--main-font);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin-inline: 1.5rem;
+}
+
+/* ============= NAVBAR ============== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+    background-color: var(--main-color);
+    box-shadow: 2px 0px 10px 11px #00000059;
+
+}
+
+.nav__icon,
+.nav__burger-btn,
+.nav__close-btn {
+    color: white;
+}
+
+.nav {
+
+    height: var(--height-header);
+}
+
+.nav__content {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+
+.nav__icon {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .25rem;
+    font-size: var(--main-font-size);
+    font-weight: 600;
+
+
+}
+
+
+.nav__toogle-btn {
+    position: relative;
+    height: 32px;
+    width: 32px;
+
+}
+
+.nav__burger-btn,
+.nav__close-btn {
+    position: absolute;
+    height: max-content;
+    width: max-content;
+    inset: 0;
+    margin: auto;
+    transition: opacity .1s, transform .4s;
+
+}
+
+.nav__close-btn {
+    opacity: 0;
+}
+
+
+
+
+
+@media screen and (max-width:1120px) {
+    .nav__menu {
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        height: calc(100vh-3.5rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+
+    .nav__menu::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .nav__list {
+        background-color: var(--main-color);
+        padding-top: 1rem;
+    }
+
+    .nav {
+        height: 4rem;
+    }
+
+    .about-us__title,
+    .contact-us__title,
+    .our-product__title,
+    .home__title {
+        font-size: 4rem;
+    }
+}
+
+.nav__menu-link {
+    color: white;
+    background: var(--main-color);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color .3s;
+    font-weight: 500;
+}
+
+.nav__menu-link:hover,
+.active {
+    color: #5CC6FF;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #004266;
+    font-size: 100px;
+    font-weight: 700;
+    color: white;
+}
+
+.nav__menu-link:hover {
+    background-color: var(--main-color-light);
+}
+
+.show_menu {
+    opacity: 1;
+    top: 3.5rem;
+    pointer-events: initial;
+}
+
+.show_icon .nav__burger-btn {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show_icon .nav__close-btn {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+@media screen and (max-width:340px) {
+
+    .container {
+        margin-inline: 1rem;
+
+    }
+
+    .nav__menu-link {
+        padding-inline: 1rem;
+    }
+
+
+}
+
+@media screen and (min-width:1120px) {
+    .container {
+        margin-inline: 11rem;
+    }
+
+    .nav {
+        height: 5rem;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .nav__toogle-btn {
+        display: none;
+    }
+
+    .nav__list {
+        height: 100%;
+        display: flex;
+        column-gap: 3rem;
+    }
+
+    .nav__menu-link {
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+        column-gap: .25rem;
+    }
+
+    .nav__menu-link:hover {
+        background-color: transparent;
+    }
+
+}
